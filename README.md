@@ -8,6 +8,8 @@ This node js api is used to create and query organizations, environments and rol
 
 * Run and compile the code using **node index.js** command.
 
+* Open the displayed localhost-port in a browser. 
+
 * Swagger UI will be openend up, test the code accordingly by choosing the desired end points and choices available.
 
 
