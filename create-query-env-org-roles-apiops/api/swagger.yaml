@@ -1,0 +1,281 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: "create-query-org-env-role-api"
+paths:
+  /anypoint: {}
+  /anypoint/org:
+    get:
+      operationId: "anypointOrgGET"
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          schema:
+            example:
+            - Organization Name: "NJC Labs"
+              id: "8d0888ce-0877-4524-8983-063be18c34be"
+            - Organization Name: "core services sub"
+              id: "aaeefd35-3f99-4193-9495-56dd2560dec4"
+            - Organization Name: "core services sub1"
+              id: "c03fd737-9dff-46da-baa3-6a9cdb830010"
+          x-amf-mediaType: "application/json"
+        "400":
+          description: ""
+          schema:
+            example:
+              code: "400"
+              message: "bad request"
+          x-amf-mediaType: "application/json"
+        "500":
+          description: ""
+          schema:
+            example:
+              code: "500"
+              message: "internal server error"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+    post:
+      operationId: "anypointOrgPOST"
+      parameters:
+      - in: "body"
+        name: "generated"
+        required: false
+        schema:
+          $ref: "#/definitions/create-org-DT"
+        x-amf-mediaType: "application/json"
+      responses:
+        "201":
+          description: ""
+          schema:
+            example:
+              message: "organization created"
+          x-amf-mediaType: "application/json"
+        "400":
+          description: ""
+          schema:
+            example:
+              code: "400"
+              message: "bad request"
+          x-amf-mediaType: "application/json"
+        "500":
+          description: ""
+          schema:
+            example:
+              code: "500"
+              message: "internal server error"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+  /anypoint/env:
+    get:
+      operationId: "anypointEnvGET"
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          schema:
+            example:
+            - id: "4db24a92-eed0-499d-a44c-402e2208620a"
+              name: "Design"
+              organizationId: "734f2b9e-090c-42ee-a81d-80b6e0995b04"
+              isProduction: false
+              type: "design"
+              clientId: "bdec9c75e90d44cb9116f64196e856bd"
+            - id: "9a5ac489-0c9b-452b-9ade-af2c8eb2538e"
+              name: "Production"
+              organizationId: "734f2b9e-090c-42ee-a81d-80b6e0995b04"
+              isProduction: true
+              type: "production"
+              clientId: "dd7421e9bf1740fcb97c5a91672b8d93"
+            - id: "d1235e46-3714-4b3c-a18d-6c86bcd5b6ca"
+              name: "Sandbox"
+              organizationId: "734f2b9e-090c-42ee-a81d-80b6e0995b04"
+              isProduction: false
+              type: "sandbox"
+              clientId: "60089cf90e034f77a66d0308f8127dcb"
+          x-amf-mediaType: "application/json"
+        "400":
+          description: ""
+          schema:
+            example:
+              code: "400"
+              message: "bad request"
+          x-amf-mediaType: "application/json"
+        "500":
+          description: ""
+          schema:
+            example:
+              code: "500"
+              message: "internal server error"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+    post:
+      operationId: "anypointEnvPOST"
+      parameters:
+      - in: "body"
+        name: "generated"
+        required: false
+        schema:
+          $ref: "#/definitions/create-env-DT"
+        x-amf-mediaType: "application/json"
+      responses:
+        "201":
+          description: ""
+          schema:
+            example:
+              message: "Environment Created"
+          x-amf-mediaType: "application/json"
+        "400":
+          description: ""
+          schema:
+            example:
+              code: "400"
+              message: "bad request"
+          x-amf-mediaType: "application/json"
+        "500":
+          description: ""
+          schema:
+            example:
+              code: "500"
+              message: "internal server error"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+  /anypoint/role:
+    post:
+      operationId: "anypointRolePOST"
+      parameters:
+      - in: "body"
+        name: "generated"
+        required: false
+        schema:
+          $ref: "#/definitions/create-role-DT"
+        x-amf-mediaType: "application/json"
+      responses:
+        "201":
+          description: ""
+          schema:
+            example:
+              message: "Role Created"
+          x-amf-mediaType: "application/json"
+        "400":
+          description: ""
+          schema:
+            example:
+              code: "400"
+              message: "bad request"
+          x-amf-mediaType: "application/json"
+        "500":
+          description: ""
+          schema:
+            example:
+              code: "500"
+              message: "internal server error"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+  /anypoint/role/roleGroup:
+    get:
+      operationId: "anypointRoleRoleGroupGET"
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          schema:
+            example: "/resources/examples/get-role-group-response.json"
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+  /anypoint/role/roleGroup/{roleGroupName}: {}
+  /anypoint/role/roleGroup/{roleGroupName}/roles:
+    get:
+      operationId: "anypointRoleRoleGroupRoleGroupNameRolesGET"
+      parameters:
+      - name: "roleGroupName"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: ""
+          schema:
+            example:
+              data:
+              - context_params:
+                  org: "8d0888ce-0877-4524-8983-063be18c34be"
+                  envId: "efde6aed-a767-4bc6-9469-34d6e10c0059"
+                created_at: "2020-12-21T18:21:15.007Z"
+                role_group_assignment_id: "97813ccd-06bf-4828-80ff-cee4a2b9e35d"
+                role_group_id: "bf325a11-3317-49c7-8d60-cd569a207241"
+                role_id: "8f77b09c-5376-4bfd-9e9d-5dfc1b6f7d3e"
+                org_id: "8d0888ce-0877-4524-8983-063be18c34be"
+                name: "Anypoint Monitoring User"
+                description: "Role for Anypoint Monitoring User"
+                internal: false
+              - context_params:
+                  org: "8d0888ce-0877-4524-8983-063be18c34be"
+                  envId: "efde6aed-a767-4bc6-9469-34d6e10c0059"
+                created_at: "2020-12-21T18:22:34.202Z"
+                role_group_assignment_id: "a4ae3460-2c79-48b5-829d-33b0037df79a"
+                role_group_id: "bf325a11-3317-49c7-8d60-cd569a207241"
+                role_id: "86895647-efd1-43f2-ab44-3c5d5cc6c5cc"
+                org_id: "8d0888ce-0877-4524-8983-063be18c34be"
+                name: "Grant access to secrets"
+                description: "Gives the ability to browse, read metadata and grant\
+                  \ access to secrets in a specific environment."
+                internal: false
+              total: 2
+          x-amf-mediaType: "application/json"
+      x-swagger-router-controller: "Default"
+definitions:
+  create-org-DT:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "core services sub business group"
+    example:
+      name: "core services sub"
+    additionalProperties: {}
+  create-env-DT:
+    type: "object"
+    required:
+    - "isProduction"
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "Sandbox"
+      isProduction:
+        type: "boolean"
+        example: false
+    example:
+      name: "Demo"
+      isProduction: false
+    additionalProperties: {}
+  create-role-DT:
+    type: "object"
+    required:
+    - "description"
+    - "environment"
+    - "name"
+    - "role"
+    properties:
+      name:
+        type: "string"
+        example: "customeRole"
+      description:
+        type: "string"
+        example: "this is a custom role"
+      environment:
+        type: "string"
+        example: "sandbox"
+      role:
+        type: "string"
+        example: "Add Server Groups"
+    example:
+      name: "API Versions Owner"
+      description: "Owner of all API versions in the organization"
+      environment: "sandbox"
+      role: "Add Server Groups"
+    additionalProperties: {}

@@ -1,0 +1,15 @@
+{
+    "anypoint" : {
+        "username" : "jmf1104",
+        "password" : "John000@",
+        "orgid" : "734f2b9e-090c-42ee-a81d-80b6e0995b04",
+        "host" : "https://anypoint.mulesoft.com/accounts/api/organizations/",
+        "host1" : "https://anypoint.mulesoft.com/accounts/login",
+        "path" : "/environments",
+        "path2" : "/accounts/api/me",
+        "host2" : "https://anypoint.mulesoft.com",
+        "getRoleGroupsPath" : "/accounts/api/organizations/",
+        "getAllRoles" : "/accounts/api/roles",
+        "getRoleGroupsSubpath" : "/rolegroups/"
+        }
+}
